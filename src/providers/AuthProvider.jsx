@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
 import { getAuth,  onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import axios from "axios";

@@ -7,7 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./providers/AuthProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="max-w-[1296px] mx-auto">
+  <div className="">
     <AuthProvider>
     <HelmetProvider>
       <RouterProvider router={router} />

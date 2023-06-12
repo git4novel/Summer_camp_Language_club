@@ -1,6 +1,6 @@
 <!-- TODO at project finishing time -->
 
-# Project Name
+# Project name
 
 ![Logo](./public/vite.svg)
 

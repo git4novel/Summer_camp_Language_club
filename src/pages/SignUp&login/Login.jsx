@@ -1,39 +1,61 @@
 // import { FcGoogle } from 'react-icons/fc';
 import { BsEyeSlashFill, BsEyeFill} from 'react-icons/bs';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SocialLogin from '../../shared/SocialLogin';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { AuthContext, auth } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
 const Login = () => {
+  const {setUser, setLoading} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
     };
 
+    const navigate = useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
+
     const { register, handleSubmit} = useForm();
     const onSubmit = data => {
-
-        console.log(data);
-
+      const {email, password} = data;
+      setLoading(true);
+      signInWithEmailAndPassword(auth, email, password)
+      .then((result)=>{
+        const user = result.user;
+        setUser(user);
+        Swal.fire({
+          icon: 'success',
+          title: 'user logged in successfully',
+          showCancelButton: true,
+          timer: 1000
+        })
+        navigate(from)
+      })
+      .catch((error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: `${error.message}`,
+          showCancelButton: true,
+          timer: 1000
+        })
+      })
     }
   return (
     <>
     <Helmet>
-        <title>Login || </title>
+        <title>Login || summer camp</title>
     </Helmet>
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+        <div className="text-center lg:text-left w-full lg:w-1/2">
+          <h1 className="text-5xl font-bold text-center">Login now!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">

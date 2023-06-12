@@ -1,14 +1,17 @@
 // import React from 'react';
-import './Banner.css'
+import "./Banner.css";
+import 'react-awesome-slider/dist/styles.css';
+
 const Banner = () => {
-    return (
-        <div className="banner p-5 m-5 flex justify-around">
-            <div>Hi I am Novvel</div>
-            <div>
-                <img src="../../../../public/cool-background.png"></img>
-            </div>
-        </div>
-    );
+  return (
+    <div className="">
+      <AwesomeSlider animation="cubeAnimation">
+        <div data-src="/path/to/image-0.png" />
+        <div data-src="/path/to/image-1.png" />
+        <div data-src="/path/to/image-2.jpg" />
+      </AwesomeSlider>
+    </div>
+  );
 };
 
 export default Banner;

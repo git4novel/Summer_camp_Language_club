@@ -1,8 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/Home/Home";
 import SignUp from "../pages/SignUp&login/SignUp";
 import Login from "../pages/SignUp&login/Login";
+import ErrorPageLayout from "../layouts/ErrorPageLayout";
+import Instructors from "../pages/Instructors/Instructors";
+import Classes from "../pages/Classes/Classes";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +23,28 @@ const router = createBrowserRouter([
         {
             path: 'login',
             element: <Login></Login>
+        },
+        // error page navigation
+        {
+          path: '*',
+          element: <Navigate to={'/errorpage'}></Navigate>
+        },
+        {
+          path: 'instructors',
+          element: <Instructors></Instructors>
+        },
+        {
+          path: 'classes',
+          element: <Classes></Classes>
         }
       ]
     },
+    {
+      path: '/errorpage',
+      element: <ErrorPageLayout></ErrorPageLayout>
+    }
+    // dashboard here
+
+
   ]);
 export default router;

@@ -1,8 +1,11 @@
 import Banner from "./Banner/Banner";
+import '../../layouts/Main.css'
 
 const Home = () => {
     return (
-        <Banner></Banner>
+        <div className="">
+            <Banner></Banner>
+        </div>
     );
 };
 

@@ -1,0 +1,11 @@
+/* Light Theme */
+.theme-light {
+    --bg-primary: #ffffff;
+    --text-primary: #333333;
+  }
+  
+/* Dark Theme */
+  .theme-dark {
+    --bg-primary: #333333;
+    --text-primary: #ffffff;
+  }
