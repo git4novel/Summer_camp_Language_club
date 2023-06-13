@@ -54,7 +54,7 @@ const StudentReviews = () => {
     <p className="text-center text-3xl font-bold review-text mt-4">Let's here the Thoughts <br />Of Our Students</p>
     </Fade>
     <Slide>
-    <div className="max-w-3xl mx-auto p-4">
+    <div className="max-w-3xl mx-auto pt-1 p-4">
       <div className="flex items-center justify-center mb-4">
       </div>
       <div className="bg-white shadow-xl border rounded-lg p-6 relative">
