@@ -6,7 +6,7 @@
 
 ## Description
 
-[LinguaViva is a platform for becoming a poliglot. Being polyglot has massive advantages and we are keeping everyone thoughts.]
+### LinguaViva is a platform for becoming a poliglot. Being polyglot has massive advantages and we are keeping everyone thoughts.
 
 ## Features
 
