@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 bg-nav bg-slate-600 text-neutral-content">
         <div>
           <svg
             width="50"
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+      <footer className="footer footer-center p-4 bg-base-300 bg-nav text-base-content">
         <div>
           <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
         </div>

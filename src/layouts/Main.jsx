@@ -19,7 +19,7 @@ const Main = () => {
     return (
         <div className={`theme-${theme}`}>
         <Navbar toggleTheme={toggleTheme}></Navbar>
-        <div className="mx-auto">
+        <div className="outlet-bg bg-img mx-auto">
         <Outlet></Outlet>
         </div>
         <Footer></Footer>

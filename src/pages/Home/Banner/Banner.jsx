@@ -10,7 +10,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Banner = () => {
   return (
-    <div className="relative mb-10">
+    <div className="relative mb-20">
       <AutoplaySlider
         animation="cubeAnimation"
         play={true}
