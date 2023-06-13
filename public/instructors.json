@@ -1,0 +1,87 @@
+[
+    {
+      "InstructorImg": "instructor1.jpg",
+      "Name": "John Smith",
+      "email": "johnsmith@example.com",
+      "ClassNumber": 3,
+      "classesName": ["English", "Spanish", "Bangla"]
+    },
+    {
+      "InstructorImg": "instructor2.jpg",
+      "Name": "Maria Garcia",
+      "email": "mariagarcia@example.com",
+      "ClassNumber": 4,
+      "classesName": ["English", "Spanish", "Bangla", "Hindi"]
+    },
+    {
+      "InstructorImg": "instructor3.jpg",
+      "Name": "Ahmed Khan",
+      "email": "ahmedkhan@example.com",
+      "ClassNumber": 2,
+      "classesName": ["English", "Arabic"]
+    },
+    {
+      "InstructorImg": "instructor4.jpg",
+      "Name": "Olga Petrov",
+      "email": "olgapetrov@example.com",
+      "ClassNumber": 4,
+      "classesName": ["English", "Russian", "Spanish", "Bangla"]
+    },
+    {
+      "InstructorImg": "instructor5.jpg",
+      "Name": "Li Wei",
+      "email": "liwei@example.com",
+      "ClassNumber": 3,
+      "classesName": ["English", "Mandarin", "Spanish"]
+    },
+    {
+      "InstructorImg": "instructor6.jpg",
+      "Name": "Rajesh Patel",
+      "email": "rajeshpatel@example.com",
+      "ClassNumber": 2,
+      "classesName": ["English", "Hindi"]
+    },
+    {
+      "InstructorImg": "instructor7.jpg",
+      "Name": "Sophie Anderson",
+      "email": "sophieanderson@example.com",
+      "ClassNumber": 3,
+      "classesName": ["English", "Spanish", "French"]
+    },
+    {
+      "InstructorImg": "instructor8.jpg",
+      "Name": "Luis Hernandez",
+      "email": "luishernandez@example.com",
+      "ClassNumber": 3,
+      "classesName": ["Spanish", "English", "Italian"]
+    },
+    {
+      "InstructorImg": "instructor9.jpg",
+      "Name": "Rima Das",
+      "email": "rimadas@example.com",
+      "ClassNumber": 4,
+      "classesName": ["English", "Hindi", "Bengali", "Assamese"]
+    },
+    {
+      "InstructorImg": "instructor10.jpg",
+      "Name": "Mohammed Abbas",
+      "email": "mohammedabbas@example.com",
+      "ClassNumber": 2,
+      "classesName": ["English", "Arabic"]
+    },
+    {
+      "InstructorImg": "instructor11.jpg",
+      "Name": "Anastasia Ivanova",
+      "email": "anastasiaivanova@example.com",
+      "ClassNumber": 4,
+      "classesName": ["English", "Russian", "German", "Spanish"]
+    },
+    {
+      "InstructorImg": "instructor12.jpg",
+      "Name": "Chen Wei",
+      "email": "chenwei@example.com",
+      "ClassNumber": 3,
+      "classesName": ["English", "Mandarin", "Spanish"]
+    }
+  ]
+  

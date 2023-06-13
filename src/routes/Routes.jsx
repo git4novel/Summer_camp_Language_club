@@ -26,11 +26,6 @@ const router = createBrowserRouter([
             path: 'login',
             element: <Login></Login>
         },
-        // error page navigation
-        {
-          path: '*',
-          element: <Navigate to={'/errorpage'}></Navigate>
-        },
         {
           path: 'instructors',
           element: <Instructors></Instructors>
@@ -38,7 +33,12 @@ const router = createBrowserRouter([
         {
           path: 'classes',
           element: <Classes></Classes>
-        }
+        },
+        // error page navigation
+        {
+          path: '*',
+          element: <Navigate to={'/errorpage'}></Navigate>
+        },
       ]
     },
     {

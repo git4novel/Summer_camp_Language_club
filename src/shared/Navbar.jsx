@@ -16,12 +16,13 @@ const Navbar = ({toggleTheme}) => {
     setDark(!dark)
   }
 
+  // react awesome reveal for text todo
  return (
     <div className="navbar bg-base-800 bg-nav">
       <div className="navbar-start">
-        <div className="dropdown md:hidden ">
-          <label tabIndex={0} className="btn btn-ghost btn-circle">
-            <svg
+        <div className="dropdown md:hidden flex">
+          <label tabIndex={0} className="btn btn-ghost btn-circle flex">
+              <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
               fill="none"
@@ -36,9 +37,10 @@ const Navbar = ({toggleTheme}) => {
               />
             </svg>
           </label>
+          <Link to={'/'}><img className="h-10" src="https://img.freepik.com/free-vector/languages-concept-illustration_114360-15683.jpg?w=360&t=st=1686668204~exp=1686668804~hmac=71d9110db8c06dc11810081971739de984cfd9b7673c683f29e60b183ae253a7"></img></Link>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu float menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <Link className={dark ? "text-white" : 'text-black'} to={'/signUp'}>Home</Link>
@@ -60,8 +62,9 @@ const Navbar = ({toggleTheme}) => {
           </ul>
       </div>
       </div>
-      <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+      <div className="navbar-center hidden md:flex">
+        <a className="btn btn-ghost normal-case text-xl">LinguaViva</a>
+        <Link to={'/'}><img className="h-10" src="https://img.freepik.com/free-vector/languages-concept-illustration_114360-15683.jpg?w=360&t=st=1686668204~exp=1686668804~hmac=71d9110db8c06dc11810081971739de984cfd9b7673c683f29e60b183ae253a7"></img></Link>
       </div>
       <div className="navbar-end">
         <button onClick={toggleTheme} className="btn btn-ghost btn-circle">
