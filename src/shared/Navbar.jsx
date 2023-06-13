@@ -63,7 +63,7 @@ const Navbar = ({toggleTheme}) => {
       </div>
       </div>
       <div className="navbar-center hidden md:flex">
-        <a className="btn btn-ghost normal-case text-xl">LinguaViva</a>
+        <Link to={'/'} className="btn btn-ghost normal-case text-xl">LinguaViva</Link>
         <Link to={'/'}><img className="h-10" src="https://img.freepik.com/free-vector/languages-concept-illustration_114360-15683.jpg?w=360&t=st=1686668204~exp=1686668804~hmac=71d9110db8c06dc11810081971739de984cfd9b7673c683f29e60b183ae253a7"></img></Link>
       </div>
       <div className="navbar-end">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   // Fetch classes data
@@ -15,6 +16,10 @@ const Classes = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+      <title>Classes | LinguaViva</title>
+    </Helmet>
     <div className="mt-6  grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1296px] mx-auto">
       {classes.map((cls) => (
         <div className="flex " key={cls.Name}>
@@ -62,6 +67,7 @@ const Classes = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
