@@ -6,6 +6,8 @@ import Login from "../pages/SignUp&login/Login";
 import ErrorPageLayout from "../layouts/ErrorPageLayout";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
+import Dashboard from "../pages/DashBoard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -42,9 +44,12 @@ const router = createBrowserRouter([
     {
       path: '/errorpage',
       element: <ErrorPageLayout></ErrorPageLayout>
-    }
+    },
     // dashboard here
-
+    {
+      path: '/dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    }
 
   ]);
 export default router;
