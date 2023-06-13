@@ -3,6 +3,11 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { BsMoonStars, BsMoonStarsFill } from "react-icons/bs";
 
+// react awesome btn
+import { AwesomeButton } from 'react-awesome-button';
+import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
+
+
 
 const Navbar = ({toggleTheme}) => {
  const {logOut, user} = useContext(AuthContext)
@@ -68,10 +73,16 @@ const Navbar = ({toggleTheme}) => {
           user ? <>
           <Link className={dark ? "text-white italic font-semibold mx-2" : 'text-black italic font-semibold mx-2'} to={'/dashboard'}>Dashboard</Link>
         <img className="rounded-full h-10 w-10 mx-1" src={user.photoURL}></img>
-        <button onClick={logOut} className="btn btn-primary">Log Out</button>
+        <button onClick={logOut}>
+        <AwesomeButton cssModule={AwesomeButtonStyles} type="primary">
+        Log Out
+        </AwesomeButton>
+        </button>
           </>
           :
-          <Link to={'/login'}><button className="btn btn-primary">Login</button></Link>
+          <Link to={'/login'}><AwesomeButton cssModule={AwesomeButtonStyles} type="secondary">
+          Login
+          </AwesomeButton></Link>
         }
       </div>
     </div>

@@ -1,3 +1,18 @@
-/* .banner{
-    background-image: ;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fredoka:wght@600&family=Pacifico&display=swap');
+
+
+
+.eye-catchy-text {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(30,136,229);
+    text-shadow: 2px 2px 4px rgba(22, 7, 7, 0.5);
+    font-family: 'Dancing Script', cursive;
+  }
+
+/*   font-family: 'Dancing Script', cursive;
+font-family: 'Fredoka', sans-serif;
+font-family: 'Pacifico', cursive;
+ */

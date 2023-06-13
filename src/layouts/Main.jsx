@@ -19,7 +19,7 @@ const Main = () => {
     return (
         <div className={`theme-${theme}`}>
         <Navbar toggleTheme={toggleTheme}></Navbar>
-        <div className="max-w-[1296px] mx-auto">
+        <div className="mx-auto">
         <Outlet></Outlet>
         </div>
         <Footer></Footer>
