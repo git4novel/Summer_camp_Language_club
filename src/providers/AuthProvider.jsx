@@ -10,6 +10,9 @@ export const auth = getAuth(app)
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    
+    // fake data 
+    // const [admin, setAdmin] = useState(admin)
 
     const updateUserProfile = (name, photo) =>{
         return updateProfile(auth.currentUser, {
