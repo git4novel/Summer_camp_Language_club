@@ -2,7 +2,7 @@
 
 const AddAClass = () => {
     return (
-        <div>
+        <div className="my-2 lg:my-6">
             
         </div>
     );

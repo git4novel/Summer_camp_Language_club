@@ -3,7 +3,7 @@
 const MyClasses = () => {
     return (
         <div>
-            
+            <h3>Instructors my classes</h3>
         </div>
     );
 };

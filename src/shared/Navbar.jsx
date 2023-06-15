@@ -74,7 +74,7 @@ const Navbar = ({toggleTheme}) => {
         </button>
         {
           user ? <>
-          <Link className={dark ? "text-white italic font-semibold mx-2" : 'text-black italic font-semibold mx-2'} to={'/dashboard'}>Dashboard</Link>
+          <Link className={dark ? "text-white italic font-semibold mx-2" : 'text-black italic font-semibold mx-2'} to={'/dashboard/selected-classes'}>Dashboard</Link>
         <img className="rounded-full h-10 w-10 mx-1" src={user.photoURL}></img>
         <button onClick={logOut}>
         <AwesomeButton cssModule={AwesomeButtonStyles} type="primary">
