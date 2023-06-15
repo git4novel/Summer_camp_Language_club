@@ -1,1 +1,9 @@
 /* here we will Put active links css class */
+
+.navlink a.active{
+    color: white;
+}
+.navlink a {
+    color: black;
+    background-color: transparent;
+}

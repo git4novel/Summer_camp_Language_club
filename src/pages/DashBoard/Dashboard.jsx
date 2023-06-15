@@ -5,16 +5,17 @@ import "./DashBoard.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { SiGoogleclassroom, SiSololearn } from "react-icons/si";
-import { FaUsersCog,} from "react-icons/fa";
+import { FaHome, FaUsersCog,} from "react-icons/fa";
 import { FcPaid } from "react-icons/fc";
 import { MdOutlinePayments } from "react-icons/md";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Dashboard = () => {
-  const { loading, } = useContext(AuthContext);
+  const {loading, user} = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor() 
 
-  const admin = true;
-  const user = true;
-  const instructor = true;
 
   return (
     <>
@@ -25,9 +26,10 @@ const Dashboard = () => {
         {/* links */}
         <div className="relative w-full md:w-1/4 h-[200px] md:h-[100vh] lg:h-[100vh] bg-cyan-500 text-white font-semibold rounded-t-lg md:rounded-l-lg">
           {/* navigation link Will be set here depending on user , admin , and instructor */}
-          <div className="flex flex-row md:flex-col absolute md:top-1/2 top-2 space-y-2 pl-3 md:pl-5">
-            {user && (
+          <div className="navlink flex justify-around md:justify-start items-center flex-row md:flex-col absolute md:top-1/2 top-2 space-y-2 pl-3 md:pl-5">
+            {(user && (!isAdmin && !isInstructor)) && (
               <>
+                <NavLink to={'/'} className={'flex items-center gap-1'} ><FaHome></FaHome>Home</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/selected-classes"><SiGoogleclassroom/> My Selected Classes</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/enrolled-classes"><FcPaid></FcPaid> My Enrolled Classes</NavLink>
                 <div className="divider">---</div>
@@ -35,15 +37,17 @@ const Dashboard = () => {
               </>
             )}
             {/* for instructor */}
-            {instructor && (
+            {(user && isInstructor) && (
               <>
+              <NavLink to={'/'} className={'flex items-center gap-1'} ><FaHome></FaHome>Home</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/add-class"><SiGoogleclassroom/> Add A Class</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/my-classes"><SiSololearn/>My Classes</NavLink>
               </>
             )}
             {/* for admin */}
-            {admin && (
+            {(isAdmin) && (
               <>
+              <NavLink to={'/'} className={'flex items-center gap-1'} ><FaHome></FaHome>Home</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/manage-classes"><SiGoogleclassroom /> Manage Classes</NavLink>
                 <NavLink className={'flex items-center gap-1'} to="/dashboard/manage-users"><FaUsersCog/>  Manage Users</NavLink>
               </>
