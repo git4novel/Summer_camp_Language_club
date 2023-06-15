@@ -6,8 +6,7 @@ import { BsMoonStars, BsMoonStarsFill } from "react-icons/bs";
 // react awesome btn
 import { AwesomeButton } from "react-awesome-button";
 import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
-import useAdmin from "../hooks/useAdmin";
-import useInstructor from "../hooks/useInstructor";
+
 
 const Navbar = ({ toggleTheme }) => {
   const { logOut, user } = useContext(AuthContext);

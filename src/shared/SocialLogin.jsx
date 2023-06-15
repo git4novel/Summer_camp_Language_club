@@ -14,7 +14,6 @@ const SocialLogin = () => {
 
     const gProvider = new GoogleAuthProvider()
     const HandleGoogleLogin = () =>{
-        setLoading(true)
         signInWithPopup(auth, gProvider)
         .then(result=>{
             const user = result.user;
@@ -32,6 +31,7 @@ const SocialLogin = () => {
               .then(() => {
                     setUser(user)
                     navigate(from)  
+                    setLoading(false)
               });
         })
         .catch(error=>{

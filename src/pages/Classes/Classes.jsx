@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { Helmet } from "react-helmet-async";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Classes = () => {
   // Fetch classes data
   const [classes, setClasses] = useState([]);
+
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation();
 
   useEffect(() => {
     fetch("http://localhost:5000/classes")
@@ -14,6 +21,44 @@ const Classes = () => {
         setClasses(classes);
       });
   }, []);
+
+  const AddToSelectedClass = (cls) =>{
+      const { ClassImg, price, availableSeat ,Name, _id} = cls;
+      if(user && user.email){
+        const item = {itemId: _id, Name, ClassImg, availableSeat, price, email:user.email}
+        fetch('http://localhost:5000/studentclass',{
+          method: "POST",
+          headers: {
+            'content-type' : 'application/json'
+          },
+          body: JSON.stringify(item)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          if(data.insertedId){
+            Swal.fire({
+              icon: 'success',
+              title: 'Success...',
+              text: 'Class inserted Successfully!',
+            })
+          }
+        })
+      }
+      else{
+        Swal.fire({
+          title: 'Please Login to add class',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Login Now!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/login', {state:{from: location}})
+          }
+        })
+      }
+  }
 
   return (
     <>
@@ -53,6 +98,7 @@ const Classes = () => {
                 </p>
               </div>
               <button
+              onClick={()=>AddToSelectedClass(cls)}
                 className={cls.availableSeat === 0 ? "disable" : "w-full"}
               >
                 <AwesomeButton

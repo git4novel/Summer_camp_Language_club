@@ -7,6 +7,7 @@ import { SpinnerInfinity } from "spinners-react";
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
     const location = useLocation()
+    
     if(loading){
        return <div className="relative"><SpinnerInfinity className="absolute top-1/2 right-1/2 my-20" size={90} thickness={180} speed={229} color="#ff0000" secondaryColor="#00ff00" /></div>
     }
