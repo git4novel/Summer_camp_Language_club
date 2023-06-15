@@ -3,7 +3,7 @@
 const Payment = () => {
     return (
         <div>
-            <h3>Payment here</h3>
+            <h3>Payment hered</h3>
         </div>
     );
 };

@@ -15,6 +15,7 @@ import AddAClass from "../pages/DashBoard/Instructor/AddAClass";
 import MyClasses from "../pages/DashBoard/Instructor/MyClasses";
 import ManageClasses from "../pages/DashBoard/Admin/ManageClasses";
 import ManageUser from "../pages/DashBoard/Admin/ManageUser";
+import Payment from "../pages/DashBoard/Student/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         {
           path: 'enrolled-classes',
           element:<MyEnrolledClass></MyEnrolledClass>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         },
         {
           path: 'payment-history',

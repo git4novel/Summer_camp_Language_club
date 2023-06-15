@@ -1,12 +1,43 @@
-
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { FaAmazonPay, FaTrashAlt } from 'react-icons/fa';
 import useAddedClass from "../../../hooks/useAddedClass";
+import { Link } from 'react-router-dom';
+// import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const MySelectedClass = () => {
-  const { user } = useContext(AuthContext);
 
-  const [classes, refetch] = useAddedClass()
+  const [axiosSecure] = useAxiosSecure()
+  const [classes, refetch] = useAddedClass();
+
+
+  const handleDelete = (myclass) =>{
+    Swal.fire({
+      title: 'Are you sure to delete?',
+      text: "You Cant revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+          axiosSecure.delete(`/studentclass/${myclass._id}`)
+              .then(res => {
+                  console.log('deleted res', res.data);
+                  if (res.data.deletedCount > 0) {
+                      refetch();
+                      Swal.fire(
+                          'Deleted!',
+                          'Your class deleted.',
+                          'success'
+                      )
+                  }
+              })
+    
+      }
+    })
+  }
 
   return (
     <div className="my-4 mx-2">
@@ -21,6 +52,8 @@ const MySelectedClass = () => {
               <th>Class Name</th>
               <th>Class Seat</th>
               <th>Favorite Color</th>
+              <th>Pay</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +64,16 @@ const MySelectedClass = () => {
                  <td>{myClass.Name}</td> 
                  <td>{myClass.availableSeat}</td>
                  <td>{myClass.price}</td>
+                 <td>
+                  <Link to={'/dashboard/payment'}>
+                  <button className='btn bg-warning font-semibold text-white'>
+                    <FaAmazonPay/>
+                  </button>
+                  </Link>
+                 </td>
+                 <td>
+                 <button onClick={() => handleDelete(myClass)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+                 </td>
               </tr>
               )
             }
@@ -42,43 +85,3 @@ const MySelectedClass = () => {
 };
 
 export default MySelectedClass;
-
-
-{/* <tbody>
-                        {
-                            menu.map((item, index) => <tr key={item._id}>
-                                <td>
-                                    {index + 1}
-                                </td>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={item.image} alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">{item.name}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {item.category}
-                                </td>
-                                <td className="text-right">${item.price}</td>
-                                <td>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
-                                </td>
-                            </tr>)
-                        }
-
-                    </tbody> */}
-        {/* <tr className="bg-base-200">
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr> */}
