@@ -9,36 +9,36 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../shared/SocialLogin";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
-
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-    const { updateUserProfile, setUser, setLoading } = useContext(AuthContext)
-    const [error, setError] = useState('')
-    const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { errors },
-    } = useForm();
-    const navigate = useNavigate();
-  
-    const onSubmit = (data) => {
-      if(data.password !== data.confirm){
-        setError('Confirm Password should be similar to Password Field');
-        return;
-      }
-      setLoading(true)
-      createUserWithEmailAndPassword(auth, data.email, data.password).then((result) => {
+  const { updateUserProfile, setUser, setLoading } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    if (data.password !== data.confirm) {
+      setError("Confirm Password should be similar to Password Field");
+      return;
+    }
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, data.email, data.password).then(
+      (result) => {
         const loggedUser = result.user;
-        setUser(loggedUser)
+        setUser(loggedUser);
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             const saveUser = { name: data.name, email: data.email };
-            fetch("http://localhost:5000/users", {
+            fetch("https://summercamp-ten.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -61,12 +61,13 @@ const SignUp = () => {
               });
           })
           .catch((error) => console.log(error));
-      });
-    };
+      }
+    );
+  };
 
-    return (
-       <>
-       <Helmet>
+  return (
+    <>
+      <Helmet>
         <title>Sign Up || Summer camp</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
@@ -92,7 +93,7 @@ const SignUp = () => {
                   <span className="text-red-500">Name field is required</span>
                 )}
               </div>
-              
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -113,23 +114,23 @@ const SignUp = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <div className="relative">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  {...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 10,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
-                  })}
-                  placeholder="password"
-                  className="input input-bordered w-full"
-                />
-                <div
-                  className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
-                </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 10,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
+                    })}
+                    placeholder="password"
+                    className="input input-bordered w-full"
+                  />
+                  <div
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
+                  </div>
                 </div>
                 {errors.password?.type === "required" && (
                   <p className="text-red-500">Password is required</p>
@@ -144,24 +145,24 @@ const SignUp = () => {
                 )}
               </div>
               <div className="form-control">
-              <label className="label">
+                <label className="label">
                   <span className="label-text">Confirm Password</span>
                 </label>
                 <div className="relative">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  {...register("confirm", {
-                    required: true,
-                  })}
-                  placeholder="Confirm password"
-                  className="input input-bordered w-full"
-                />
-                <div
-                  className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
-                </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    {...register("confirm", {
+                      required: true,
+                    })}
+                    placeholder="Confirm password"
+                    className="input input-bordered w-full"
+                  />
+                  <div
+                    className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? <BsEyeSlashFill /> : <BsEyeFill />}
+                  </div>
                 </div>
                 <small className="text-sm text-red-600">{error}</small>
               </div>
@@ -179,13 +180,16 @@ const SignUp = () => {
                   <span className="text-red-600">Photo URL is required</span>
                 )}
               </div>
-                <label className="label">
+              <label className="label">
                 <p>
-                <small>
-                  Already a user! <Link className="text-blue-800" to={"/login"}>Go Login</Link>
-                </small>
+                  <small>
+                    Already a user!{" "}
+                    <Link className="text-blue-800" to={"/login"}>
+                      Go Login
+                    </Link>
+                  </small>
                 </p>
-                </label>
+              </label>
               <div className="form-control mt-6">
                 <input
                   className="btn btn-primary"
@@ -194,13 +198,13 @@ const SignUp = () => {
                 />
               </div>
               <div className="divider">Or</div>
-            <SocialLogin></SocialLogin>
+              <SocialLogin></SocialLogin>
             </form>
           </div>
         </div>
       </div>
-       </>
-    );
+    </>
+  );
 };
 
 export default SignUp;

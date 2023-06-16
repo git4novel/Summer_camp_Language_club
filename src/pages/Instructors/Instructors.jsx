@@ -5,7 +5,7 @@ const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://summercamp-ten.vercel.app/instructors")
       .then((res) => res.json())
       .then((instructors) => {
         setInstructors(instructors);
@@ -54,8 +54,6 @@ const Instructors = () => {
 
 export default Instructors;
 
-
-
 /* import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -63,7 +61,7 @@ import { Helmet } from "react-helmet-async";
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/instructors")
+        fetch("https://summercamp-ten.vercel.app/instructors")
           .then((res) => res.json())
           .then((instructors) => {
             setInstructors(instructors);
@@ -95,15 +93,3 @@ const Instructors = () => {
 };
 
 export default Instructors; */
-
-
-
-
-
-
-
-
-
-
-
-
