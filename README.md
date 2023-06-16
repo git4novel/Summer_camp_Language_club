@@ -6,24 +6,27 @@
 
 ## Description
 
-### LinguaViva is a platform for becoming a poliglot. Being polyglot has massive advantages and we are keeping everyone thoughts.
+### LinguaViva is a platform for becoming a polyglot. Being polyglot has massive advantages and we are keeping everyone thoughts.
 
 ## Features
 
 - [Feature 1]: [Project is a React Application which uses Tailwind and DaisyUi on Ui]
 - [Feature 2]: [Project has more than 10-12 npm package install for making more attractive]
-- [Feature 3]: [Description of feature 3]
-- [Feature 4]: [Description of feature 4]
-- [Feature 5]: [Description of feature 5]
+- [Feature 3]: [It is a fullstack project where it used expressjs to write server side code]
+- [Feature 4]: [Crud operation has been used. add adding , updating is easier than ever]
+- [Feature 5]: [Here we used dashboard in terms of user it will be changed . if user he can see only his path . if some one is admin he can see admin path]
 
 ## Technologies Used
 
-- [Package/Technology 1]
-- [Package/Technology 2]
-- [Package/Technology 3]
-- [Package/Technology 4]
-- [Package/Technology 5]
+- [Used different type of google font to make it nicer]
+- [Used a stripe payment method for getting money of service]
+- [Huge source of npm packages used for UI ]
+- [For route management used react router dom]
+- [Used tanstack query, axios and other stuff]
+- [Jwt token verification is used to make backend safer]
+- [Sweetalert2, react helmet, react awesome button is used]
+- [Firebase is used for login and sign up also google signin method is used]
 
 ## Live Site
 
-Click [here](https://www.facebook.com/groups/phwebdevelopmentbatch7) to visit the live site.
+Click [here](https://summer-camp-school-c6877.web.app) to visit the live site.
