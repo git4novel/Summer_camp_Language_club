@@ -62,7 +62,7 @@ const MySelectedClass = () => {
           </thead>
           <tbody>
             {classes.map((myClass, index) => (
-              <tr key={myClass._id} className="bg-base-200">
+              <tr key={myClass._id} className="bg-base-200 my-2">
                 <td>{index+1}</td>
                 <td>{myClass.Name}</td>
                 <td>{myClass.availableSeat}</td>

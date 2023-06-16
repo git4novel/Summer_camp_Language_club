@@ -35,6 +35,22 @@ const MyEnrolledClass = () => {
                     </button>
                   </td>
                 </tr>
+                <tr className="bg-base-200">
+                  <td>+1</td>
+                  <td>myClass.Name</td>
+                  <td>myClass.availableSeat</td>
+                  <td>yClass.price</td>
+                  <td>
+                   <h3>he</h3>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-ghost bg-red-600 text-white"
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </td>
+                </tr>
             </tbody>
           </table>
         </div>

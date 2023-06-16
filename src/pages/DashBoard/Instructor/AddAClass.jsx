@@ -1,19 +1,22 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
+
 
 const AddAClass = () => {
     const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
-
+    const {user} = useContext(AuthContext);
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
         const formData = new FormData();
+        console.log(data);
         formData.append('image', data.image[0])
-
         fetch(img_hosting_url, {
             method: 'POST',
             body: formData
@@ -22,18 +25,18 @@ const AddAClass = () => {
         .then(imgResponse => {
             if(imgResponse.success){
                 const imgURL = imgResponse.data.display_url;
-                const {name, price, category, recipe} = data;
-                const newItem = {name, price: parseFloat(price), category, recipe, image:imgURL}
+                console.log(imgURL);
+                const {price, availableseat, instructor, instructoremail, classname} = data;
+                const newItem = {Name:classname, price:parseFloat(price), InstructorName:instructor, email:instructoremail, availableSeat:availableseat, ClassImg:imgURL, pendingStatus:"pending"}
                 console.log(newItem)
-                axiosSecure.post('/menu', newItem)
+                axiosSecure.post('/instructoraddclass', newItem)
                 .then(data => {
-                    console.log('after posting new menu item', data.data)
                     if(data.data.insertedId){
                         reset();
                         Swal.fire({
-                            position: 'top-end',
+                            position: 'center',
                             icon: 'success',
-                            title: 'Item added successfully',
+                            title: 'Class added successfully',
                             showConfirmButton: false,
                             timer: 1500
                           })
@@ -62,17 +65,44 @@ const AddAClass = () => {
                     </label>
                     <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
             </div>
-            {/*  */}
+            {/* intructor name */}
             <div className="form-control w-full mb-3">
                 <label className="label">
-                    <span className="label-text font-semibold">Class Name*</span>
+                    <span className="label-text font-semibold">Instructor Name</span>
                 </label>
-                <input type="text" placeholder="Class Name"
-                    {...register("classname", { required: true, maxLength: 60 })}
+                <input type="text" defaultValue={user.displayName} readOnly placeholder="instructor Name"
+                    {...register("instructor", { required: true, maxLength: 60  })}
+                    className="input input-bordered w-full" />
+            </div>
+            {/* instructor mail */}
+            <div className="form-control w-full mb-3">
+                <label className="label">
+                    <span className="label-text font-semibold">Instructor Email</span>
+                </label>
+                <input type="text" defaultValue={user.email} readOnly placeholder="Instructor Email"
+                    {...register("instructoremail", { required: true, maxLength: 60})}
+                    className="input input-bordered w-full" />
+            </div>
+            {/* available seat */}
+            <div className="form-control w-full mb-3">
+                <label className="label">
+                    <span className="label-text font-semibold">Available Seat</span>
+                </label>
+                <input type="text" placeholder="Available Seat"
+                    {...register("availableseat", { required: true, maxLength: 60})}
+                    className="input input-bordered w-full" />
+            </div>
+            {/* price */}
+            <div className="form-control w-full mb-3">
+                <label className="label">
+                    <span className="label-text font-semibold">Price</span>
+                </label>
+                <input type="text" placeholder="Price"
+                    {...register("price", { required: true, maxLength: 60})}
                     className="input input-bordered w-full" />
             </div>
 
-            <input className="btn btn-sm mt-4" type="submit" value="Add Item" />
+            <input className="btn btn-sm mt-4" type="submit" value="Add Class" />
         </form>
         </div>
     );

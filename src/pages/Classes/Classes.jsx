@@ -15,9 +15,10 @@ const Classes = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch("https://summercamp-ten.vercel.app/classes")
+    fetch("https://summercamp-ten.vercel.app/approvedclasses")
       .then((res) => res.json())
       .then((classes) => {
+        console.log(classes);
         setClasses(classes);
       });
   }, []);
@@ -100,7 +101,7 @@ const Classes = () => {
                     Available Seats: {cls.availableSeat}
                   </p>
                   <p className="mb-4 italic font-semibold">
-                    Available Seats: {cls.price}$
+                    Price: {cls.price}$
                   </p>
                 </div>
                 <button
