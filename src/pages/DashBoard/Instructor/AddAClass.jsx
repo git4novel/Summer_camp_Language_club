@@ -56,7 +56,7 @@ const AddAClass = () => {
                     className="input input-bordered w-full" />
             </div> 
             {/* image input  */}
-            <div className="form-control w-full my-4">
+            <div className="form-control w-full my-3">
                     <label className="label">
                         <span className="label-text">Class Image*</span>
                     </label>
