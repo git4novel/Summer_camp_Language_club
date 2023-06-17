@@ -4,70 +4,81 @@
       "Name": "English Beginner",
       "InstructorName": "John Smith",
       "availableSeat": 20,
-      "price": 100
+      "price": 100,
+      "admitted": 120
     },
     {
       "ClassImg": "https://i.ibb.co/LkfZ3qK/spanish.jpg",
       "Name": "Spanish Intermediate",
       "InstructorName": "Maria Garcia",
       "availableSeat": 15,
-      "price": 120
+      "price": 120,
+      "admitted": 20
     },
     {
       "ClassImg": "https://i.ibb.co/LnwyRyx/bangal.jpg",
       "Name": "Bangla Conversational",
       "InstructorName": "Ahmed Khan",
       "availableSeat": 10,
-      "price": 80
+      "price": 80,
+      "admitted": 140
     },
     {
       "ClassImg": "https://i.ibb.co/k07QgXz/hindi.jpg",
       "Name": "Hindi Beginner",
       "InstructorName": "Rajesh Patel",
       "availableSeat": 18,
-      "price": 90
+      "price": 90,
+      "admitted": 120
+
     },
     {
       "ClassImg": "https://i.ibb.co/x1zX4bv/arabic.jpg",
       "Name": "Arabic Advanced",
       "InstructorName": "Mohammed Abbas",
       "availableSeat": 12,
-      "price": 150
+      "price": 150,
+      "admitted": 100
     },
     {
       "ClassImg": "https://i.ibb.co/cFHYmMd/maxresdefault.jpg",
       "Name": "Russian Beginner",
       "InstructorName": "Olga Petrov",
       "availableSeat": 16,
-      "price": 110
+      "price": 110,
+      "admitted": 140
     },
     {
       "ClassImg": "https://i.ibb.co/qNJGpbF/china.jpg",
       "Name": "Mandarin Intermediate",
       "InstructorName": "Li Wei",
       "availableSeat": 14,
-      "price": 130
+      "price": 130,
+      "admitted": 190
     },
     {
       "ClassImg": "https://i.ibb.co/xFsh3YR/french.jpg",
       "Name": "French Conversational",
       "InstructorName": "Sophie Anderson",
       "availableSeat": 10,
-      "price": 100
+      "price": 100,
+      "admitted": 10
     },
     {
       "ClassImg": "https://i.ibb.co/bXYy3B6/italian.jpg",
       "Name": "Italian Beginner",
       "InstructorName": "Luis Hernandez",
       "availableSeat": 15,
-      "price": 120
+      "price": 120,
+      "admitted": 130
     },
     {
       "ClassImg": "https://i.ibb.co/VvbPj2P/bangla.jpg",
       "Name": "Bengali Advanced",
       "InstructorName": "Rima Das",
       "availableSeat": 12,
-      "price": 140
+      "price": 140,
+      "admitted": 150
     },
     {
       "ClassImg": "https://i.ibb.co/7VxqXtw/german.jpg",
