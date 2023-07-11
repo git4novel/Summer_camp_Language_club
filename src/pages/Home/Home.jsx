@@ -6,12 +6,14 @@ import StudentReviews from "./StudentReview/StudentReviews";
 
 const Home = () => {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div >
             <Banner></Banner>
+            <div className="max-w-7xl mx-auto">
             <PopularClass></PopularClass>
             {/* extra section */}
             <PopularInstructor></PopularInstructor>
             <StudentReviews></StudentReviews>
+            </div>
         </div>
     );
 };

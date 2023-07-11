@@ -1,4 +1,4 @@
-import { key } from "localforage";
+
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const PopularClass = () => {
         {classes.map((cls) => (
           <div
             key={cls._id}
-            className="card  md:full bg-base-100 shadow-xl"
+            className="card  md:full bg-base-100 hover:shadow-lg shadow-xl"
           >
             <figure>
               <img className="object-cover w-full h-52 lg:h-64 rounded-t-md" src={cls.ClassImg} alt="Shoes" />

@@ -35,6 +35,7 @@ const MyEnrolledClass = () => {
                     </button>
                   </td>
                 </tr>
+                <br />
                 <tr className="bg-base-200">
                   <td>+1</td>
                   <td>myClass.Name</td>
